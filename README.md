@@ -1,5 +1,10 @@
 # Asynchronous Website Checker
-This is a simple Python program that checks the HTTP status codes of multiple websites concurrently using asynchronous programming techniques. This is useful for checking the health of the website whther the site is up or not.
+This is a simple Python program that employs asynchronous programming techniques to concurrently check the HTTP status codes of multiple websites. Asynchronous programming allows for efficient utilization of system resources by enabling tasks to execute concurrently without blocking the main execution thread.
+
+## Features
+- **Concurrent HTTP Status Checking**: The program utilizes asynchronous programming to simultaneously query multiple websites for their HTTP status codes.
+- **Website Health Monitoring**: This tool aids in monitoring the health of websites by determining whether they are up or experiencing connectivity issues.
+- **Efficient Resource Utilization**: Asynchronous programming enhances resource efficiency by enabling concurrent execution of tasks without unnecessary blocking, thus optimizing the program's performance.
 
 
 ## Prerequisites
@@ -8,19 +13,27 @@ This is a simple Python program that checks the HTTP status codes of multiple we
 - The logger_config module (provided separately)
 
 ## Usage
-To run the program, simply execute the main.py file in a Python environment with the prerequisites installed:
-
-`pip install -r requirements.txt`
-`python main.py`
+1. Install dependencies: Ensure you have the required Python packages installed. You can install them using pip:
+```
+pip install -r requirements.txt
+```
+2. Execute the program: Run the Python script to initiate the concurrent HTTP status checking process:
+```
+python main.py
+```
 
 The program will check the HTTP status codes of three example websites (http://example.com, http://google.com, and http://facebook.com) and log the results using the logger_config module.
+
+## Dependencies
+- **asyncio**: This module provides infrastructure for writing single-threaded concurrent code using coroutines, enabling efficient asynchronous I/O operations.
+- **aiohttp**: aiohttp is a Python library for asynchronous HTTP client/server framework. It allows for efficient handling of HTTP requests and responses in an asynchronous manner.
 
 ## Program Overview
 The main.py program uses the following main components:
 
-The check_site coroutine: This function takes an aiohttp.ClientSession object and a URL as input, and attempts to make an HTTP request to the URL using the session. If the request is successful, the function returns a tuple containing the URL and the HTTP status code. If an error occurs, the function logs an error message and returns a tuple containing the URL and None.
+- **The check_site coroutine**: This function takes an aiohttp.ClientSession object and a URL as input, and attempts to make an HTTP request to the URL using the session. If the request is successful, the function returns a tuple containing the URL and the HTTP status code. If an error occurs, the function logs an error message and returns a tuple containing the URL and None.
 
-The main coroutine: This function creates an aiohttp.ClientSession object and passes it to multiple check_site coroutines running concurrently using the asyncio.gather function. The results of the coroutines are logged using the logger_config module.
+- **The main coroutine**: This function creates an aiohttp.ClientSession object and passes it to multiple check_site coroutines running concurrently using the asyncio.gather function. The results of the coroutines are logged using the logger_config module.
 
 The program uses asynchronous programming techniques to perform multiple HTTP requests concurrently, which can improve performance compared to making requests synchronously.
 
