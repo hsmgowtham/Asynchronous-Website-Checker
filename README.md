@@ -1,5 +1,6 @@
 # Asynchronous Website Checker
-This is a simple Python program that checks the HTTP status codes of multiple websites concurrently using asynchronous programming techniques.
+This is a simple Python program that checks the HTTP status codes of multiple websites concurrently using asynchronous programming techniques. This is useful for checking the health of the website whther the site is up or not.
+
 
 ## Prerequisites
 - Python 3.7 or later
